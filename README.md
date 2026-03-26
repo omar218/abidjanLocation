@@ -1,6 +1,7 @@
 # Abidjan Location Web App version 1.0
 
 Application web (Next.js) pour rechercher des maisons en location à Abidjan. Données mock en JSON, filtres côté client, pages liste et détail.
+Projet en pleine conception par l'entreprise Tntech .
 
 ## Démarrage
 
@@ -21,3 +22,6 @@ Ouvrir http://localhost:3000
 ## Personnalisation
 - Ajoutez de nouvelles annonces dans `data/listings.json`
 - Ajustez les filtres dans `components/SearchFilters.tsx`
+
+
+## Deploiement prevu avec docker.
