@@ -1,4 +1,4 @@
-# Abidjan Rentals
+# Abidjan Location Web App version 1.0
 
 Application web (Next.js) pour rechercher des maisons en location à Abidjan. Données mock en JSON, filtres côté client, pages liste et détail.
 

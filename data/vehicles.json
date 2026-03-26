@@ -1,0 +1,50 @@
+[
+  {
+    "id": "v1",
+    "title": "Toyota Corolla 2020",
+    "price_xof_per_day": 25000,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "year": 2020,
+    "seats": 5,
+    "transmission": "automatique",
+    "fuel": "essence",
+    "commune": "Cocody",
+    "quartier": "Riviera 2",
+    "images": [
+      "https://images.unsplash.com/photo-1619767886558-efdc259cde1b?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "v2",
+    "title": "Hyundai Tucson 2019",
+    "price_xof_per_day": 35000,
+    "brand": "Hyundai",
+    "model": "Tucson",
+    "year": 2019,
+    "seats": 5,
+    "transmission": "automatique",
+    "fuel": "diesel",
+    "commune": "Marcory",
+    "quartier": "Zone 4",
+    "images": [
+      "https://images.unsplash.com/photo-1617914309185-9f78689e6a42?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "v3",
+    "title": "Kia Picanto 2018",
+    "price_xof_per_day": 18000,
+    "brand": "Kia",
+    "model": "Picanto",
+    "year": 2018,
+    "seats": 4,
+    "transmission": "manuelle",
+    "fuel": "essence",
+    "commune": "Yopougon",
+    "quartier": "Sideci",
+    "images": [
+      "https://images.unsplash.com/photo-1617469767053-d3b523a0df88?q=80&w=1600&auto=format&fit=crop"
+    ]
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "2",
+    "title": "2 pièces moderne à Marcory Zone 4",
+    "price_xof": 350000,
+    "commune": "Marcory",
+    "quartier": "Zone 4",
+    "rooms": 2,
+    "type": "2p",
+    "furnished": false,
+    "surface_m2": 55,
+    "images": [
+      "https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Villa 4 ch à Cocody Angré",
+    "price_xof": 900000,
+    "commune": "Cocody",
+    "quartier": "Angré",
+    "rooms": 4,
+    "type": "villa",
+    "furnished": false,
+    "surface_m2": 220,
+    "images": [
+      "https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "4",
+    "title": "3 pièces à Plateau Dokui",
+    "price_xof": 450000,
+    "commune": "Abobo",
+    "quartier": "Plateau Dokui",
+    "rooms": 3,
+    "type": "3p",
+    "furnished": false,
+    "surface_m2": 75,
+    "images": [
+      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "5",
+    "title": "Duplex meublé à Bingerville",
+    "price_xof": 700000,
+    "commune": "Bingerville",
+    "quartier": "Quartier résidentiel",
+    "rooms": 3,
+    "type": "duplex",
+    "furnished": true,
+    "surface_m2": 120,
+    "images": [
+      "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "6",
+    "title": "2 pièces à Yopougon Sideci",
+    "price_xof": 200000,
+    "commune": "Yopougon",
+    "quartier": "Sideci",
+    "rooms": 2,
+    "type": "2p",
+    "furnished": false,
+    "surface_m2": 50,
+    "images": [
+      "https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1600&auto=format&fit=crop"
+    ]
+  }
+]
