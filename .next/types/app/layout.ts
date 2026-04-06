@@ -1,4 +1,4 @@
-// File: /home/fall/CascadeProjects/windsurf-project/abidjan-location/app/layout.tsx
+// File: /home/fall/abidjan-location/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
