@@ -1,5 +1,19 @@
 [
   {
+    "id": "1",
+    "title": "Studio meublé à Cocody Riviera",
+    "price_xof": 150000,
+    "commune": "Cocody",
+    "quartier": "Riviera",
+    "rooms": 1,
+    "type": "studio",
+    "furnished": true,
+    "surface_m2": 35,
+    "images": [
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
     "id": "2",
     "title": "2 pièces moderne à Marcory Zone 4",
     "price_xof": 350000,
@@ -67,6 +81,272 @@
     "surface_m2": 50,
     "images": [
       "https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "7",
+    "title": "4 pièces à Treichville",
+    "price_xof": 380000,
+    "commune": "Treichville",
+    "quartier": "Quartier Commerce",
+    "rooms": 4,
+    "type": "4p",
+    "furnished": false,
+    "surface_m2": 95,
+    "images": [
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "8",
+    "title": "Appartement T3 meublé à Plateau",
+    "price_xof": 550000,
+    "commune": "Abidjan Plateau",
+    "quartier": "Centre Ville",
+    "rooms": 3,
+    "type": "3p",
+    "furnished": true,
+    "surface_m2": 85,
+    "images": [
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "9",
+    "title": "Bureau commercial à Le Plateau",
+    "price_xof": 800000,
+    "commune": "Abidjan Plateau",
+    "quartier": "Zone Administrative",
+    "rooms": 1,
+    "type": "bureau",
+    "furnished": true,
+    "surface_m2": 60,
+    "images": [
+      "https://images.unsplash.com/photo-1497366216548-375f703aeb75?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "10",
+    "title": "Villa de luxe à Abidjan 2 Plateaux",
+    "price_xof": 1200000,
+    "commune": "Abidjan Plateau",
+    "quartier": "2 Plateaux",
+    "rooms": 5,
+    "type": "villa",
+    "furnished": true,
+    "surface_m2": 350,
+    "images": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "11",
+    "title": "Studio étudiant à Cocody",
+    "price_xof": 120000,
+    "commune": "Cocody",
+    "quartier": "Université",
+    "rooms": 1,
+    "type": "studio",
+    "furnished": false,
+    "surface_m2": 28,
+    "images": [
+      "https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "12",
+    "title": "3 pièces à Koumassi Sogefiha",
+    "price_xof": 280000,
+    "commune": "Koumassi",
+    "quartier": "Sogefiha",
+    "rooms": 3,
+    "type": "3p",
+    "furnished": false,
+    "surface_m2": 70,
+    "images": [
+      "https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "13",
+    "title": "Penthouse meublé à Cocody",
+    "price_xof": 1500000,
+    "commune": "Cocody",
+    "quartier": "Riviera Palmeraie",
+    "rooms": 4,
+    "type": "autre",
+    "furnished": true,
+    "surface_m2": 280,
+    "images": [
+      "https://images.unsplash.com/photo-1613977257363-707d9e18ca9d?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "14",
+    "title": "2 pièces à Attécoubé",
+    "price_xof": 220000,
+    "commune": "Attécoubé",
+    "quartier": "Abobodoumé",
+    "rooms": 2,
+    "type": "2p",
+    "furnished": false,
+    "surface_m2": 52,
+    "images": [
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "15",
+    "title": "Villa 5 pièces à Grand-Bassam",
+    "price_xof": 600000,
+    "commune": "Grand-Bassam",
+    "quartier": "Quartier France",
+    "rooms": 5,
+    "type": "villa",
+    "furnished": false,
+    "surface_m2": 180,
+    "images": [
+      "https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "16",
+    "title": "Studio moderne à Port-Bouët",
+    "price_xof": 130000,
+    "commune": "Port-Bouët",
+    "quartier": "Vridi",
+    "rooms": 1,
+    "type": "studio",
+    "furnished": true,
+    "surface_m2": 32,
+    "images": [
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "17",
+    "title": "3 pièces meublé à Anyama",
+    "price_xof": 250000,
+    "commune": "Anyama",
+    "quartier": "M'Pouto",
+    "rooms": 3,
+    "type": "3p",
+    "furnished": true,
+    "surface_m2": 68,
+    "images": [
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "18",
+    "title": "2 pièces à Songon",
+    "price_xof": 180000,
+    "commune": "Songon",
+    "quartier": "PK 18",
+    "rooms": 2,
+    "type": "2p",
+    "furnished": false,
+    "surface_m2": 48,
+    "images": [
+      "https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "19",
+    "title": "Villa de prestige à Assinie",
+    "price_xof": 2000000,
+    "commune": "Assinie",
+    "quartier": "Mafia",
+    "rooms": 6,
+    "type": "villa",
+    "furnished": true,
+    "surface_m2": 450,
+    "images": [
+      "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "20",
+    "title": "4 pièces à Jacqueville",
+    "price_xof": 320000,
+    "commune": "Jacqueville",
+    "quartier": "Centre",
+    "rooms": 4,
+    "type": "4p",
+    "furnished": false,
+    "surface_m2": 88,
+    "images": [
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "21",
+    "title": "Appartement T2 meublé à Marcory",
+    "price_xof": 300000,
+    "commune": "Marcory",
+    "quartier": "Biétry",
+    "rooms": 2,
+    "type": "2p",
+    "furnished": true,
+    "surface_m2": 58,
+    "images": [
+      "https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "22",
+    "title": "5 pièces à Yopougon Niangon",
+    "price_xof": 420000,
+    "commune": "Yopougon",
+    "quartier": "Niangon",
+    "rooms": 5,
+    "type": "4p",
+    "furnished": false,
+    "surface_m2": 110,
+    "images": [
+      "https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "23",
+    "title": "Bureau de prestige à Le Plateau",
+    "price_xof": 950000,
+    "commune": "Abidjan Plateau",
+    "quartier": "Zone Financière",
+    "rooms": 2,
+    "type": "bureau",
+    "furnished": true,
+    "surface_m2": 85,
+    "images": [
+      "https://images.unsplash.com/photo-1497366216548-375f703aeb75?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "24",
+    "title": "3 pièces à Adjamé",
+    "price_xof": 260000,
+    "commune": "Adjamé",
+    "quartier": "Gare",
+    "rooms": 3,
+    "type": "3p",
+    "furnished": false,
+    "surface_m2": 72,
+    "images": [
+      "https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "25",
+    "title": "Duplex de luxe à Cocody",
+    "price_xof": 1100000,
+    "commune": "Cocody",
+    "quartier": "Riviera Golf",
+    "rooms": 4,
+    "type": "duplex",
+    "furnished": true,
+    "surface_m2": 240,
+    "images": [
+      "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1600&auto=format&fit=crop"
     ]
   }
 ]

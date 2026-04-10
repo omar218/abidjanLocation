@@ -1,10 +1,18 @@
 import { NextResponse } from 'next/server';
-import { writeFile } from 'fs/promises';
+import { writeFile, readFile, mkdir } from 'fs/promises';
 import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
 
 export async function POST(request: Request) {
   try {
+    // Créer le dossier uploads s'il n'existe pas
+    const uploadsDir = path.join(process.cwd(), 'public', 'uploads');
+    try {
+      await mkdir(uploadsDir, { recursive: true });
+    } catch (error) {
+      // Le dossier existe déjà
+    }
+
     const formData = await request.formData();
     const files: File[] = [];
     const formDataEntries: Record<string, any> = {};
@@ -28,7 +36,7 @@ export async function POST(request: Request) {
       
       // Convertir le fichier en buffer
       const bytes = await file.arrayBuffer();
-      const buffer = Buffer.from(bytes);
+      const buffer = new Uint8Array(bytes);
       
       // Écrire le fichier sur le disque
       await writeFile(filePath, buffer);
@@ -37,19 +45,33 @@ export async function POST(request: Request) {
       imageUrls.push(`/uploads/${fileName}`);
     }
 
-    // Ici, vous devriez enregistrer les données dans votre base de données
-    // Par exemple :
-    // const property = await prisma.property.create({
-    //   data: {
-    //     ...JSON.parse(formDataEntries.images),
-    //     images: imageUrls,
-    //     // autres champs...
-    //   },
-    // });
+    // Lire le fichier listings.json existant
+    const listingsPath = path.join(process.cwd(), 'data', 'listings.json');
+    const listingsData = await readFile(listingsPath, 'utf-8');
+    const listings = JSON.parse(listingsData);
 
-    // Pour l'instant, on retourne simplement une réponse de succès
+    // Créer la nouvelle propriété
+    const newProperty = {
+      id: uuidv4(),
+      title: formDataEntries.title,
+      price_xof: parseInt(formDataEntries.price_xof),
+      commune: formDataEntries.commune,
+      quartier: formDataEntries.quartier,
+      rooms: parseInt(formDataEntries.rooms),
+      type: formDataEntries.type,
+      furnished: formDataEntries.furnished === 'true',
+      surface_m2: parseInt(formDataEntries.surface_m2),
+      images: imageUrls.length > 0 ? imageUrls : ["https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=1600&auto=format&fit=crop"]
+    };
+
+    // Ajouter la nouvelle propriété à la liste
+    listings.push(newProperty);
+
+    // Sauvegarder le fichier listings.json mis à jour
+    await writeFile(listingsPath, JSON.stringify(listings, null, 2));
+
     return NextResponse.json(
-      { success: true, message: 'Annonce créée avec succès', id: '123' },
+      { success: true, message: 'Annonce créée avec succès', id: newProperty.id },
       { status: 201 }
     );
   } catch (error) {

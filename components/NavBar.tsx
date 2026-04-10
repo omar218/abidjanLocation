@@ -36,7 +36,7 @@ export default function NavBar() {
                 onClick={handleLogout}
                 className="text-primary hover:underline"
               >
-                Déconnexion
+                Seetings
               </button>
             </div>
           ) : (

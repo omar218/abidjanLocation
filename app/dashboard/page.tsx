@@ -109,9 +109,9 @@ function PropertyForm() {
         throw new Error(errorData.message || 'Erreur lors de la création de l\'annonce');
       }
       
-      // Rediriger vers la page d'accueil ou la page de l'annonce créée
+      // Rediriger vers la page des logements disponibles
       const result = await response.json();
-      router.push(`/properties/${result.id}`);
+      router.push('/search');
 
       // Exemple d'appel API (à décommenter et adapter selon votre configuration backend)
       /*
@@ -154,8 +154,8 @@ function PropertyForm() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold mb-6">Ajouter une nouvelle propriété:</h1>
+    <div className="max-w-5xl mx-auto p-8 bg-white rounded-lg shadow-md">
+      <h1 className="text-3xl font-bold mb-8">Ajouter une nouvelle propriété:</h1>
       
       {error && (
         <div className="mb-4 p-3 bg-red-100 text-red-700 rounded">
@@ -163,9 +163,9 @@ function PropertyForm() {
         </div>
       )}
       
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-8">
         <div>
-          <label htmlFor="title" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="title" className="block text-base font-medium text-gray-700 mb-2">
             Titre de l'annonce *
           </label>
           <input
@@ -174,7 +174,7 @@ function PropertyForm() {
             name="title"
             value={formData.title}
             onChange={handleChange}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            className="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-lg py-3"
             placeholder="Ex: 2 pièces à Yopougon Sideci"
             required
           />
@@ -182,7 +182,7 @@ function PropertyForm() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="price_xof" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="price_xof" className="block text-base font-medium text-gray-700 mb-2">
               Prix (FCFA) *
             </label>
             <div className="mt-1 relative rounded-md shadow-sm">
@@ -204,7 +204,7 @@ function PropertyForm() {
           </div>
 
           <div>
-            <label htmlFor="surface_m2" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="surface_m2" className="block text-base font-medium text-gray-700 mb-2">
               Surface (m²) *
             </label>
             <div className="mt-1 relative rounded-md shadow-sm">
