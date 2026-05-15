@@ -166,7 +166,7 @@ function PropertyForm() {
       <form onSubmit={handleSubmit} className="space-y-8">
         <div>
           <label htmlFor="title" className="block text-base font-medium text-gray-700 mb-2">
-            Titre de l'annonce *
+            Titre de l&apos;annonce *
           </label>
           <input
             type="text"

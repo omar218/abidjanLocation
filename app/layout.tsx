@@ -2,6 +2,7 @@ import './globals.css';
 import { ReactNode } from 'react';
 import { AuthProvider } from '../context/AuthContext';
 import NavBar from '@/components/NavBar';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'Abidjan Rentals',
@@ -12,6 +13,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
       <body className="min-h-screen bg-gray-50 text-gray-900">
+        <Script
+          src="https://cdn.cinetpay.com/seamless/main.js"
+          strategy="beforeInteractive"
+        />
         <AuthProvider>
           <NavBar />
           <main className="mx-auto max-w-6xl px-4 py-6">{children}</main>
@@ -27,7 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                       <a href="tel:+2250747643420" className="ml-2 text-primary hover:underline">00225 07 47 64 34 20</a>
                     </p>
                     <p>Email: omar@abidjan-location.ci</p>
-                    <p>Abidjan, Côte d'Ivoire</p>
+                    <p>Abidjan, Côte d&apos;Ivoire</p>
                   </div>
                 </div>
 
@@ -57,7 +62,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </div>
               
               <div className="mt-6 pt-6 border-t text-center text-xs text-gray-500">
-                <p>Abidjan-cote d'ivoire by TNTECH | Plateforme de location immobilière leader à Abidjan</p>
+                <p>Abidjan-cote d&apos;ivoire by TNTECH | Plateforme de location immobilière leader à Abidjan</p>
               </div>
             </div>
           </footer>

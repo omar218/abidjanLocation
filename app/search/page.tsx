@@ -67,7 +67,7 @@ export default function SearchPage() {
       </div>
 
       {filtered.length === 0 && (
-        <div className="text-sm text-gray-600">Aucun résultat. Essayez d'élargir vos filtres.</div>
+        <div className="text-sm text-gray-600">Aucun résultat. Essayez d&apos;élargir vos filtres.</div>
       )}
     </div>
   )
