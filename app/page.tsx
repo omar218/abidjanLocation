@@ -14,8 +14,8 @@ export default function LandingPage() {
           à Abidjan
         </h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Découvrez les meilleures offres de location dans les quartiers les plus prisés d'Abidjan. 
-          Appartements, villas, studios - trouvez exactement ce qu'il vous faut.
+          Découvrez les meilleures offres de location dans les quartiers les plus prisés d&apos;Abidjan. 
+          Appartements, villas, studios - trouvez exactement ce qu&apos;il vous faut.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link 
@@ -67,7 +67,7 @@ export default function LandingPage() {
             </div>
             <h3 className="font-semibold text-lg">Large couverture</h3>
             <p className="text-gray-600">
-              Des logements dans toutes les communes d'Abidjan, de Cocody à Yopougon
+              Des logements dans toutes les communes d&apos;Abidjan, de Cocody à Yopougon
             </p>
           </div>
           
@@ -77,7 +77,7 @@ export default function LandingPage() {
             </div>
             <h3 className="font-semibold text-lg">Sécurisé</h3>
             <p className="text-gray-600">
-              Annonces vérifiées et transactions sécurisées pour votre tranquillité d'esprit
+              Annonces vérifiées et transactions sécurisées pour votre tranquillité d&apos;esprit
             </p>
           </div>
           
@@ -96,10 +96,10 @@ export default function LandingPage() {
       {/* CTA Section */}
       <section className="bg-primary text-white rounded-lg p-8 text-center space-y-6">
         <h2 className="text-3xl font-bold">
-          Prêt à trouver votre prochain logement?
+          Prêt à trouver votre prochain logement ?
         </h2>
         <p className="text-lg opacity-90 max-w-2xl mx-auto">
-          Rejoignez des milliers d'Abidjanais qui ont trouvé leur logement idéal avec nous
+          Rejoignez des milliers d&apos;Abidjanais qui ont trouvé leur logement idéal avec nous
         </p>
         <Link 
           href="/search"
