@@ -348,5 +348,61 @@
     "images": [
       "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1600&auto=format&fit=crop"
     ]
+  },
+  {
+    "id": "32485375-c17d-4bf5-8e7e-6dcdcda2b826",
+    "title": "5pieces",
+    "price_xof": 4500000,
+    "commune": "yopougon",
+    "quartier": "maroc ",
+    "rooms": 2,
+    "type": "2p",
+    "furnished": false,
+    "surface_m2": 60,
+    "images": [
+      "https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "dbe35019-f846-44ed-b96f-3c7ea16e2b2c",
+    "title": "3pieces appartement",
+    "price_xof": 1500000,
+    "commune": "cocody",
+    "quartier": "riviera",
+    "rooms": 2,
+    "type": "2p",
+    "furnished": false,
+    "surface_m2": 150,
+    "images": [
+      "https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "a2e164dd-7f16-4495-b4fa-1da654b49ee8",
+    "title": "chambre salon",
+    "price_xof": 100000000,
+    "commune": "cocody",
+    "quartier": "golf4",
+    "rooms": 2,
+    "type": "2p",
+    "furnished": true,
+    "surface_m2": 80,
+    "images": [
+      "https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=1600&auto=format&fit=crop"
+    ]
+  },
+  {
+    "id": "cff33078-c034-4c80-889d-82dd7c211d81",
+    "title": "3pieces",
+    "price_xof": 500000,
+    "commune": "cocody",
+    "quartier": "riviera",
+    "rooms": 2,
+    "type": "3p",
+    "furnished": false,
+    "surface_m2": 500,
+    "images": [
+      "https://images.unsplash.com/photo-1502005097973-6a7082348e28?q=80&w=1600&auto=format&fit=crop"
+    ]
   }
 ]

@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                       <span className="font-medium">Téléphone:</span>
                       <a href="tel:+2250747643420" className="ml-2 text-primary hover:underline">00225 07 47 64 34 20</a>
                     </p>
-                    <p>Email: omar@abidjan-location.ci</p>
+                    <p>Email: @abidjan-location.ci</p>
                     <p>Abidjan, Côte d'Ivoire</p>
                   </div>
                 </div>
