@@ -2,6 +2,11 @@
 import { useState } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 
+/**
+ * Page d'abonnement (SubscribePage) : Permet aux utilisateurs de souscrire à la plateforme
+ * via un paiement Mobile Money (Orange Money, MTN Mobile Money, Moov Money) intégré avec la passerelle CinetPay.
+ * Inclut également un mode de simulation (mock) pour les tests en environnement de développement local.
+ */
 export default function SubscribePage() {
   const [phone, setPhone] = useState("")
   const [operator, setOperator] = useState("ORANGE")
@@ -10,6 +15,10 @@ export default function SubscribePage() {
   const search = useSearchParams()
   const router = useRouter()
 
+  /**
+   * Initialise le processus de paiement CinetPay en appelant l'API backend /api/payments/initiate
+   * et redirige l'utilisateur vers la passerelle de paiement sécurisée.
+   */
   async function startPayment(e: React.FormEvent) {
     e.preventDefault()
     setError("")
@@ -22,6 +31,8 @@ export default function SubscribePage() {
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data?.message || "Impossible d'initialiser le paiement")
+      
+      // Redirection vers l'URL de paiement fournie par CinetPay ou le mock
       if (data.paymentUrl) {
         window.location.href = data.paymentUrl
       } else if (data.redirect_url) {
@@ -36,6 +47,10 @@ export default function SubscribePage() {
     }
   }
 
+  /**
+   * Fonction de test (mode dev) simulant la notification webhook de paiement réussi.
+   * Active le cookie de souscription et redirige vers l'accueil.
+   */
   async function confirmMockPayment() {
     console.log("confirmMockPayment")
     setError("")
@@ -60,9 +75,13 @@ export default function SubscribePage() {
 
   return (
     <div className="mx-auto max-w-md space-y-4">
+      {/* En-tête et description de l'abonnement */}
       <h1 className="text-2xl font-semibold">S'abonner</h1>
       <p className="text-sm text-gray-600">Payez votre abonnement par Mobile Money pour accéder à la plateforme.</p>
+      
+      {/* Formulaire de paiement Mobile Money */}
       <form onSubmit={startPayment} className="space-y-3">
+        {/* Saisie du numéro Mobile Money */}
         <div>
           <label className="block text-sm mb-1">Numéro Mobile Money</label>
           <input
@@ -74,6 +93,8 @@ export default function SubscribePage() {
             required
           />
         </div>
+
+        {/* Choix de l'opérateur Mobile Money */}
         <div>
           <label className="block text-sm mb-1">Opérateur</label>
           <select
@@ -86,17 +107,21 @@ export default function SubscribePage() {
             <option value="MOOV">Moov Money</option>
           </select>
         </div>
+
+        {/* Message d'erreur éventuel */}
         {error && <p className="text-sm text-red-600">{error}</p>}
+
+        {/* Bouton de déclenchement du paiement */}
         <button
           type="submit"
-          onClick={startPayment}
           disabled={loading}
           className="w-full rounded-md bg-primary px-4 py-2 text-white text-sm disabled:opacity-60"
         >
           {loading ? "Redirection vers CinetPay..." : "Payer l'abonnement"}
         </button>
-
       </form>
+
+      {/* Bloc de simulation de paiement en environnement de développement (?mock=1) */}
       {search.get("mock") === "1" && (
         <div className="pt-4 space-y-2">
           <p className="text-xs text-gray-500">Mode développement: paiement simulé et valide. Cliquez pour confirmer.</p>
@@ -112,3 +137,4 @@ export default function SubscribePage() {
     </div>
   )
 }
+

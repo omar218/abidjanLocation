@@ -1,17 +1,16 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 
+/**
+ * Route API : POST /api/auth/logout
+ * Déconnecte l'utilisateur en supprimant le cookie de session 'session'.
+ */
 export async function POST() {
   try {
-    // Supprimer le cookie de session
+    // Suppression immédiate du cookie de session côté serveur
     cookies().delete('session');
     
-    return new NextResponse(JSON.stringify({ success: true }), {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+    return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.error('Erreur lors de la déconnexion:', error);
     return NextResponse.json(
@@ -20,3 +19,4 @@ export async function POST() {
     );
   }
 }
+

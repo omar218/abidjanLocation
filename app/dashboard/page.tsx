@@ -1,29 +1,37 @@
 'use client';
 
-'use client';
-
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '../../context/AuthContext';
 import ProtectedRoute from '../../components/ProtectedRoute';
-import ImageUploader from '../../components/ImageUploader';
 
+/**
+ * Types de biens immobiliers acceptés.
+ */
 type PropertyType = '2p' | '3p' | '4p' | 'villa' | 'bureau' | 'autre';
 
+/**
+ * Interface des données du formulaire d'ajout de bien.
+ */
 interface PropertyFormData {
-  title: string;
-  price_xof: string;
-  commune: string;
-  quartier: string;
-  rooms: string;
-  type: PropertyType;
-  furnished: boolean;
-  surface_m2: string;
-  images: string[];
+  title: string;          // Titre de l'annonce
+  price_xof: string;      // Prix en XOF (saisie sous forme de chaîne)
+  commune: string;        // Nom de la commune
+  quartier: string;       // Nom du quartier
+  rooms: string;          // Nombre de pièces
+  type: PropertyType;     // Typologie du bien
+  furnished: boolean;     // Indicateur meublé / non meublé
+  surface_m2: string;     // Superficie en m²
+  images: string[];       // URLs temporaires d'aperçu des images
 }
 
+/**
+ * Composant formulaire permettant à un propriétaire d'enregistrer une nouvelle annonce immobilière.
+ * Gère les champs textuels, numériques, les listes déroulantes et l'envoi multipart (FormData) avec images.
+ */
 function PropertyForm() {
   const router = useRouter();
+
+  // État des données du formulaire
   const [formData, setFormData] = useState<PropertyFormData>({
     title: '',
     price_xof: '',
@@ -36,10 +44,16 @@ function PropertyForm() {
     images: []
   });
   
+  // Fichiers d'images bruts sélectionnés
   const [imageFiles, setImageFiles] = useState<File[]>([]);
+  // État de chargement lors de la soumission
   const [isSubmitting, setIsSubmitting] = useState(false);
+  // Message d'erreur éventuel
   const [error, setError] = useState<string | null>(null);
 
+  /**
+   * Gestionnaire universel pour la mise à jour des champs du formulaire.
+   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;
     
@@ -57,9 +71,12 @@ function PropertyForm() {
     }
   };
 
+  /**
+   * Gestionnaire de mise à jour des images sélectionnées par l'ImageUploader.
+   */
   const handleImagesChange = useCallback((files: File[]) => {
     setImageFiles(files);
-    // Créer des URLs pour la prévisualisation
+    // Création d'URLs temporaires locales pour l'aperçu
     const imageUrls = files.map(file => URL.createObjectURL(file));
     setFormData(prev => ({
       ...prev,
@@ -67,41 +84,43 @@ function PropertyForm() {
     }));
   }, []);
 
+  /**
+   * Soumission du formulaire : validation, construction du FormData et envoi vers l'API /api/properties.
+   */
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
     setIsSubmitting(true);
 
     try {
-      // Valider les données
+      // Validation des champs obligatoires
       if (!formData.title || !formData.price_xof || !formData.commune || !formData.quartier || !formData.surface_m2) {
         throw new Error('Veuillez remplir tous les champs obligatoires');
       }
 
-      // Créer un objet FormData pour gérer les fichiers
+      // Construction de l'objet FormData pour envoyer texte et fichiers binaires
       const formDataToSend = new FormData();
       
-      // Ajouter les champs du formulaire
+      // Ajout des métadonnées du formulaire
       Object.entries({
         ...formData,
         price_xof: parseInt(formData.price_xof, 10),
         rooms: parseInt(formData.rooms, 10),
         surface_m2: parseInt(formData.surface_m2, 10),
-        images: JSON.stringify(formData.images) // Envoyer les URLs en tant que chaîne JSON
+        images: JSON.stringify(formData.images)
       }).forEach(([key, value]) => {
         formDataToSend.append(key, value as string);
       });
       
-      // Ajouter les fichiers d'images
+      // Ajout des fichiers d'images binaires
       imageFiles.forEach((file, index) => {
         formDataToSend.append(`image_${index}`, file);
       });
       
-      // Ici, vous devriez envoyer les données à votre API
+      // Appel de l'API de création d'annonce
       const response = await fetch('/api/properties', {
         method: 'POST',
         body: formDataToSend,
-        // Ne pas définir le header 'Content-Type', il sera défini automatiquement avec la bonne boundary
       });
       
       if (!response.ok) {
@@ -109,30 +128,9 @@ function PropertyForm() {
         throw new Error(errorData.message || 'Erreur lors de la création de l\'annonce');
       }
       
-      // Rediriger vers la page des logements disponibles
-      const result = await response.json();
-      router.push('/search');
+      alert('Propriété ajoutée avec succès !');
 
-      // Exemple d'appel API (à décommenter et adapter selon votre configuration backend)
-      /*
-      const response = await fetch('/api/properties', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(propertyData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Erreur lors de l\'ajout de la propriété');
-      }
-
-      // Rediriger vers la page de succès ou rafraîchir les données
-      router.push('/dashboard?success=true');
-      */
-      
-      alert('Propriété ajoutée avec succès!');
-      // Réinitialiser le formulaire après soumission réussie
+      // Réinitialisation du formulaire
       setFormData({
         title: '',
         price_xof: '',
@@ -142,8 +140,12 @@ function PropertyForm() {
         type: '2p',
         furnished: false,
         surface_m2: '',
-        images: ['']
+        images: []
       });
+      setImageFiles([]);
+
+      // Redirection vers la page de recherche pour constater l'ajout
+      router.push('/search');
       
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Une erreur est survenue');
@@ -157,6 +159,7 @@ function PropertyForm() {
     <div className="max-w-5xl mx-auto p-8 bg-white rounded-lg shadow-md">
       <h1 className="text-3xl font-bold mb-8">Ajouter une nouvelle propriété:</h1>
       
+      {/* Affichage des erreurs éventuelles */}
       {error && (
         <div className="mb-4 p-3 bg-red-100 text-red-700 rounded">
           {error}
@@ -164,6 +167,7 @@ function PropertyForm() {
       )}
       
       <form onSubmit={handleSubmit} className="space-y-8">
+        {/* Champ Titre */}
         <div>
           <label htmlFor="title" className="block text-base font-medium text-gray-700 mb-2">
             Titre de l'annonce *
@@ -180,6 +184,7 @@ function PropertyForm() {
           />
         </div>
 
+        {/* Loyer et Surface */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="price_xof" className="block text-base font-medium text-gray-700 mb-2">
@@ -226,6 +231,7 @@ function PropertyForm() {
           </div>
         </div>
 
+        {/* Commune et Quartier */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="commune" className="block text-sm font-medium text-gray-700">
@@ -260,6 +266,7 @@ function PropertyForm() {
           </div>
         </div>
 
+        {/* Nombre de pièces et Type de bien */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="rooms" className="block text-sm font-medium text-gray-700">
@@ -304,6 +311,7 @@ function PropertyForm() {
           </div>
         </div>
 
+        {/* Option Meublé */}
         <div className="flex items-center">
           <input
             id="furnished"
@@ -318,6 +326,7 @@ function PropertyForm() {
           </label>
         </div>
 
+        {/* Bouton de soumission */}
         <div className="pt-5">
           <button
             type="submit"
@@ -332,10 +341,14 @@ function PropertyForm() {
   );
 }
 
+/**
+ * Page Dashboard (Tableau de bord propriétaire).
+ * Protégée par le composant `ProtectedRoute` : accessible uniquement aux utilisateurs avec le rôle "proprietaire".
+ */
 export default function DashboardPage() {
   return (
-    <ProtectedRoute requiredRole="proprietaire">
+    <ProtectedRoute requiredRole={['proprietaire', 'agence', 'admin']}>
       <PropertyForm />
     </ProtectedRoute>
   );
-}
+}

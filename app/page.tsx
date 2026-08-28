@@ -2,10 +2,15 @@
 import Link from 'next/link'
 import { MapPin, Home, Users, Shield, Search, ArrowRight } from 'lucide-react'
 
+/**
+ * Page d'accueil (Landing Page) de l'application Abidjan Location.
+ * Présente le service avec un message d'accroche (Hero), des indicateurs clés (Stats),
+ * les avantages de la plateforme (Features) et des boutons d'appel à l'action (CTA).
+ */
 export default function LandingPage() {
   return (
     <div className="space-y-16">
-      {/* Hero Section */}
+      {/* Section Hero : Bannière principale avec message fort et liens rapides */}
       <section className="text-center space-y-6 py-12">
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
           Trouvez votre prochain
@@ -18,6 +23,7 @@ export default function LandingPage() {
           Appartements, villas, studios - trouvez exactement ce qu'il vous faut.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* Bouton vers la recherche */}
           <Link 
             href="/search" 
             className="inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-lg font-medium text-white hover:opacity-90 transition-opacity"
@@ -25,6 +31,7 @@ export default function LandingPage() {
             <Search className="w-5 h-5 mr-2" />
             Rechercher un logement
           </Link>
+          {/* Bouton vers le dépôt d'annonce (Tableau de bord propriétaire) */}
           <Link 
             href="/dashboard" 
             className="inline-flex items-center justify-center rounded-md border border-primary px-6 py-3 text-lg font-medium text-primary hover:bg-primary hover:text-white transition-colors"
@@ -35,7 +42,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Section Statistiques : Chiffres clés renforçant la confiance */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8">
         <div className="text-center">
           <div className="text-3xl font-bold text-primary mb-2">150+</div>
@@ -51,7 +58,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Section Fonctionnalités & Avantages : Pourquoi choisir la plateforme */}
       <section className="space-y-8 py-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Pourquoi nous choisir?</h2>
@@ -61,6 +68,7 @@ export default function LandingPage() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Couverture géographique */}
           <div className="text-center space-y-4">
             <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
               <MapPin className="w-6 h-6 text-primary" />
@@ -71,6 +79,7 @@ export default function LandingPage() {
             </p>
           </div>
           
+          {/* Sécurité et annonces vérifiées */}
           <div className="text-center space-y-4">
             <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
               <Shield className="w-6 h-6 text-primary" />
@@ -81,6 +90,7 @@ export default function LandingPage() {
             </p>
           </div>
           
+          {/* Support client et accompagnement */}
           <div className="text-center space-y-4">
             <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
               <Users className="w-6 h-6 text-primary" />
@@ -93,7 +103,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Section Call to Action (CTA) finale */}
       <section className="bg-primary text-white rounded-lg p-8 text-center space-y-6">
         <h2 className="text-3xl font-bold">
           Prêt à trouver votre prochain logement?
@@ -112,3 +122,4 @@ export default function LandingPage() {
     </div>
   )
 }
+
